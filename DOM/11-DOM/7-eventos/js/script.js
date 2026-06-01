@@ -1,49 +1,47 @@
-const img = document.querySelector("img");
-function callback(event) {
-  // console.log(event);
-}
+// Quando o usuário clicar nos links internos do site,
+// adicione a classe ativo ao item clicado e remova dos
+// demais itens caso eles possuam a mesma. Previna
+// o comportamento padrão desses links
+const linksInternos = document.querySelectorAll("a[href^='#']");
 
-img.addEventListener("click", callback);
-
-const animaisLista = document.querySelector(".animais-lista");
-
-function callbackLista(event) {
-  console.log(event.currentTarget);
-  console.log(event.target);
-  console.log(event.type);
-}
-
-animaisLista.addEventListener("click", callbackLista);
-
-const linkExterno = document.querySelector("a[href^='http']");
-function handleLinkExterno(event) {
+function handleLink(event) {
   event.preventDefault();
-  console.log(this.href);
+  linksInternos.forEach((link) => {
+    link.classList.remove("ativo");
+  });
+  event.currentTarget.classList.add("ativo");
 }
 
-linkExterno.addEventListener("click", handleLinkExterno);
+linksInternos.forEach((link) => {
+  link.addEventListener("click", handleLink);
+});
 
-const h1 = document.querySelector("h1");
+// Selecione todos os elementos do site começando a partir do body,
+// ao clique mostre exatamente quais elementos estão sendo clicados
+const all = document.querySelectorAll("body *");
 
-function handleEvent(event) {
-  console.log(event.type, event);
-  if (event.key === "f") {
-    console.log("FAAAAAHH");
+function handleElemento(event) {
+  console.log(event.currentTarget);
+}
+
+all.forEach((elemento) => {
+  elemento.addEventListener("click", handleElemento);
+});
+
+// Utilizando o código anterior, ao invés de mostrar no console,
+// remova o elemento que está sendo clicado, o método remove() remove um elemento
+
+// function handleElemento(event) {
+//   console.log(event.currentTarget.remove());
+// }
+
+// Se o usuário clicar na tecla (t), aumente todo o texto do site.
+// const html = document.querySelector("body");
+
+function handleClickT(event) {
+  if (event.key === "t") {
+    document.documentElement.classList.toggle("texto-maior");
   }
 }
 
-// h1.addEventListener("click", handleEvent);
-// h1.addEventListener("mouseenter", handleEvent);
-// h1.addEventListener("mousemove", handleEvent);
-
-// window.addEventListener("scroll", handleEvent);
-// window.addEventListener("resize", handleEvent);
-
-function handleKeyboard(event) {
-  if (event.key === "a") {
-    document.body.classList.toggle("azul");
-  }
-  console.log(event.key);
-}
-
-window.addEventListener("keydown", handleKeyboard);
+window.addEventListener("keydown", handleClickT);

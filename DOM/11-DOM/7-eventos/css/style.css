@@ -28,6 +28,10 @@ img {
   display: block;
 }
 
+html.texto-maior {
+  font-size: 150%;
+}
+
 body {
   background: var(--cor-background);
   color: var(--cor-texto);
@@ -221,10 +225,6 @@ body {
 
   .header {
     margin-top: 0px;
-  }
-
-  .menu a {
-    background: teal;
   }
 
   .header,
