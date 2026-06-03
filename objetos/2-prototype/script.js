@@ -1,28 +1,37 @@
-function Pessoa(nome, idade) {
+// Crie uma função construtora de Pessoas
+// Deve conter nome, sobrenome e idade
+// Crie um método no protótipo que retorne
+// o nome completo da pessoa
+function Pessoa(nome, sobrenome, idade) {
   this.nome = nome;
+  this.sobrenome = sobrenome;
   this.idade = idade;
-  this.abracar = function () {
-    return "Abraçou";
-  };
-  this.andar = function () {
-    return "Andou";
-  };
 }
 
-let obj = {
-  nome: "Francisco",
-  idade: 30,
+Pessoa.prototype.nomeCompleto = function () {
+  return `${this.nome} ${this.sobrenome}`;
 };
 
-Pessoa.prototype.andar = function () {
-  return `${this.nome} andou!`;
-};
+const francisco = new Pessoa("Francisco", "Araujo", 30);
 
-Pessoa.prototype.correr = function () {
-  return `${this.nome} correu!`;
-};
+// Liste os métodos acessados por
+// dados criados com NodeList,
+// HTMLCollection, Document
+function Constructor(constructor) {
+  const construtorPrototypes = constructor.prototype;
+  return construtorPrototypes;
+}
 
-const chico = new Pessoa("Chico", 30);
+// Liste os construtores dos dados abaixo
+const li = document.querySelector("li");
 
-console.log(Pessoa.prototype);
-console.log(chico.prototype);
+li; // HTMLLIElement
+li.click; //
+li.innerText; // String
+li.value; // Number
+li.hidden; // Boolean
+li.offsetLeft; // Number
+li.click(); // undefined
+
+// Qual o construtor do dado abaixo:
+li.hidden.constructor.name; // String
