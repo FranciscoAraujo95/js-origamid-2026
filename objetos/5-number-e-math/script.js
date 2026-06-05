@@ -16,7 +16,7 @@ console.log(numeroMaximo);
 const listaPrecos = ["R$ 59,99", " R$ 100,222", "R$ 230  ", "r$  200"];
 
 function limparPreco(preco) {
-  preco = +preco.toUpperCase().replace("R$", "").trim().replace(",", ".");
+  preco = +preco.toUpperCase().replace("R$", "").replace(",", ".").trim();
   preco = +preco.toFixed(2);
   return preco;
 }
@@ -32,5 +32,3 @@ console.log(
     currency: "BRL",
   }),
 );
-
-limparPreco(listaPrecos[1]);
