@@ -110,7 +110,7 @@
 
 // console.log(listaAulas);
 
-const frutas = ["Banana", "", "Pera", "Uva"];
+const frutas = ["Banana", "Abacaxi", "Pera", "Uva"];
 
 //Verifica se algum dos itens do array é igual ao item passado, nesse caso "Uva"
 const temUva = frutas.some((item) => {
@@ -131,3 +131,40 @@ const maiorQue3 = numeros.every((numero) => {
   return numero > 3;
 });
 console.log(maiorQue3);
+
+//Procura um valor maior que 45 e retorna esse valor
+const maiorQueX = numeros.find((x) => x > 45);
+console.log(maiorQueX);
+
+//Procura um valor passado e retorna o index dele
+const buscaPera = frutas.findIndex((fruta) => fruta === "Pera");
+console.log(`Index Pera: ${buscaPera}`);
+
+const frutas1 = ["Banana", undefined, null, "", "Abacaxi", 0, "Pera", "Uva"];
+
+//Retirna uma array com os valores que durante a iteração, retornaram um valor truthy
+const arrayFrutas = frutas1.filter((item) => item);
+
+console.log(arrayFrutas);
+
+const aulas = [
+  {
+    nome: "HTML 1",
+    min: 15,
+  },
+  {
+    nome: "HTML 2",
+    min: 10,
+  },
+  {
+    nome: "CSS 1",
+    min: 20,
+  },
+  {
+    nome: "JS 1",
+    min: 25,
+  },
+];
+
+const maiorQue15 = aulas.filter((aula) => aula.min >= 15);
+console.log(maiorQue15);
