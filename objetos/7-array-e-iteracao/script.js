@@ -59,22 +59,75 @@
 // console.log(nomeAulas);
 // console.log(tempoAulas);
 
-const aulas = [10, 25, 30];
+// const aulas = [10, 25, 30];
 
-const tempoAulas = aulas.reduce((acumulador, item) => {
-  console.log(acumulador, item);
-  return acumulador + item;
+// const tempoAulas = aulas.reduce((acumulador, item) => {
+//   console.log(acumulador, item);
+//   return acumulador + item;
+// });
+
+// console.log(tempoAulas);
+
+// //Verificando o maior item do array numeros
+// const numeros = [4, 8, 12, 25, 60, 37];
+// const maiorValor = numeros.reduce(
+//   (anterior, atual) => (anterior > atual ? anterior : atual),
+//   0,
+// );
+// // if (anterior > atual) {
+// //   return anterior;
+// // } else {
+// //   return atual;
+// // }
+
+// console.log(maiorValor);
+
+//
+
+// const aulas = [
+//   {
+//     nome: "HTML 1",
+//     min: 15,
+//   },
+//   {
+//     nome: "HTML 2",
+//     min: 10,
+//   },
+//   {
+//     nome: "CSS 1",
+//     min: 20,
+//   },
+//   {
+//     nome: "JS 1",
+//     min: 25,
+//   },
+// ];
+
+// const listaAulas = aulas.reduce((acumulador, aula, index) => {
+//   acumulador[index] = aula.nome;
+//   return acumulador;
+// }, {});
+
+// console.log(listaAulas);
+
+const frutas = ["Banana", "", "Pera", "Uva"];
+
+//Verifica se algum dos itens do array é igual ao item passado, nesse caso "Uva"
+const temUva = frutas.some((item) => {
+  return item === "Uva";
 });
 
-console.log(tempoAulas);
+//Verifica se algum dos itens do array vai dar false
+const every = frutas.every((item) => {
+  console.log(item);
+  return item;
+});
 
-//Verificando o maior item do array numeros
-const numeros = [4, 8, 12, 25, 60, 37];
-const maiorValor = numeros.reduce((anterior, atual) => anterior > atual ? anterior : atual, 0);
-  // if (anterior > atual) {
-  //   return anterior;
-  // } else {
-  //   return atual;
-  // }
-  
-console.log(maiorValor);
+console.log(every);
+
+const numeros = [6, 43, 22, 88, 101, 29];
+
+const maiorQue3 = numeros.every((numero) => {
+  return numero > 3;
+});
+console.log(maiorQue3);
