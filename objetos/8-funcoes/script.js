@@ -1,117 +1,35 @@
-// // const perimetro = new Function("lado", "return lado * 4");
+// Retorne a soma total de caracteres dos
+// parágrafos acima utilizando reduce
+const paragrafos = document.querySelectorAll("p");
 
-// function somar(n1, n2) {
-//   return n1 + n2;
-// }
+const totalCaracteres = Array.prototype.reduce.call(
+  paragrafos,
+  (acumulador, item) => {
+    return acumulador + item.innerText.length;
+  },
+  0,
+);
 
-// console.log(somar(3, 3));
+console.log(`Total de caracteres: ${totalCaracteres}.`);
 
-// console.log(somar.length); // Mostra a quantidade de argumentos passados nessa função
-// console.log(somar.name); // Mostra o nome da função, lol
+// Crie uma função que retorne novos elementos
+// html, com os seguintes parâmetros
+// tag, classe e conteudo.
+function criarElemento(tag, classe, conteudo) {
+  const elemento = document.createElement(tag);
+  classe ? elemento.classList.add(classe) : null;
+  conteudo ? (elemento.innerHTML = conteudo) : null;
 
-// function darOi(nome, idade) {
-//   console.log(`Oi para você ${nome} ${idade}`);
-// }
-
-// darOi.call({}, "Francisco", 30);
-
-// //
-
-// window.marca = "VW";
-// window.ano = 2017;
-
-// function descricaoCarro(velocidade) {
-//   console.log(this);
-//   console.log(this.marca + " " + this.ano + " " + velocidade);
-// }
-
-// descricaoCarro.call({ marca: "Honda", ano: 2019 }, 100);
-
-// const carros = ["Ford", "Fiat", "VW"];
-// const frutas = ["Banana", "Pêra", "Uva"];
-
-// carros.forEach.call(frutas, (item) => {
-//   console.log(item);
-// });
-
-//
-
-// function Dom(seletor) {
-//   this.element = document.querySelector(seletor);
-// }
-
-// Dom.prototype.ativo = function (classe) {
-//   console.log(this);
-//   this.element.classList.add(classe);
-// };
-
-// const li = {
-//   element: document.querySelector("li"),
-// };
-
-// Dom.prototype.ativo.call(li, "ativar");
-
-// const ul = new Dom("ul");
-
-// ul.ativo("ativar");
-// ul.ativo.call(li, "ativar");
-
-// console.log(ul);
-
-//
-
-// const frutas = ["Uva", "Maçã", "Banana"];
-
-// Array.prototype.pop.call(frutas); //Mesma coisa
-// frutas.pop(); //Mesma coisa
-// // console.log(frutas);
-
-// const li = document.querySelectorAll("li");
-
-// const filtro = Array.prototype.filter.bind(li, (item) => {
-//   return item.classList.contains("ativo");
-// });
-
-// console.log(filtro());
-// console.log(li);
-
-//
-
-// const numeros = [33, 3123, 3214, 1233, 2134, 4566, 67];
-
-// //Apply recebe uma array como argumento
-// const numeroMaior = Math.max.apply(null, numeros);
-// console.log(numeroMaior);
-
-//
-
-// const $ = document.querySelectorAll.bind(document);
-
-//
-
-// const carro = {
-//   marca: "Ford",
-//   ano: 2018,
-//   acelerar: function (aceleracao, tempo) {
-//     return `${this.marca} acelerou ${aceleracao} em ${tempo}`;
-//   },
-// };
-
-// const honda = {
-//   marca: "Honda",
-// };
-
-// const acelerarHonda = carro.acelerar.bind(honda);
-// console.log(acelerarHonda(300, 25));
-
-// console.log(carro.acelerar(100, 20));
-
-//
-
-function imc(altura, peso) {
-  return peso / altura ** 2;
+  return elemento;
 }
-console.log(imc(1.7, 70).toFixed(2));
 
-const imc180 = imc.bind(null, 1.8);
-console.log(imc180(85).toFixed(2));
+console.log(criarElemento("h1", "ativa", "Animais Fantásticos"));
+
+// Crie uma nova função utilizando a anterior como base
+// essa nova função deverá sempre criar h1 com a
+// classe titulo. Porém o parâmetro conteudo continuará dinâmico
+
+const h1Titulo = criarElemento.bind(null, "h1", "titulo");
+
+console.log(h1Titulo("Cursos de JavaScript"));
+console.log(h1Titulo("Cursos de HTML"));
