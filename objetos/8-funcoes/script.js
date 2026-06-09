@@ -60,17 +60,58 @@
 
 //
 
-const frutas = ["Uva", "Maçã", "Banana"];
+// const frutas = ["Uva", "Maçã", "Banana"];
 
-Array.prototype.pop.call(frutas);
-frutas.pop();
-// console.log(frutas);
+// Array.prototype.pop.call(frutas); //Mesma coisa
+// frutas.pop(); //Mesma coisa
+// // console.log(frutas);
 
-const li = document.querySelectorAll("li");
+// const li = document.querySelectorAll("li");
 
-const filtro = Array.prototype.filter.call(li, (item) => {
-  return item.classList.contains("ativo");
-});
+// const filtro = Array.prototype.filter.bind(li, (item) => {
+//   return item.classList.contains("ativo");
+// });
 
-console.log(filtro);
-console.log(li);
+// console.log(filtro());
+// console.log(li);
+
+//
+
+// const numeros = [33, 3123, 3214, 1233, 2134, 4566, 67];
+
+// //Apply recebe uma array como argumento
+// const numeroMaior = Math.max.apply(null, numeros);
+// console.log(numeroMaior);
+
+//
+
+// const $ = document.querySelectorAll.bind(document);
+
+//
+
+// const carro = {
+//   marca: "Ford",
+//   ano: 2018,
+//   acelerar: function (aceleracao, tempo) {
+//     return `${this.marca} acelerou ${aceleracao} em ${tempo}`;
+//   },
+// };
+
+// const honda = {
+//   marca: "Honda",
+// };
+
+// const acelerarHonda = carro.acelerar.bind(honda);
+// console.log(acelerarHonda(300, 25));
+
+// console.log(carro.acelerar(100, 20));
+
+//
+
+function imc(altura, peso) {
+  return peso / altura ** 2;
+}
+console.log(imc(1.7, 70).toFixed(2));
+
+const imc180 = imc.bind(null, 1.8);
+console.log(imc180(85).toFixed(2));
